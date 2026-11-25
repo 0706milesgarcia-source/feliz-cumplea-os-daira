@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una sorpresa para Daira ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --rosa: #edb8c4;
+    --crema: #fff5e8;
+    --vino: #a76d7b;
+    --marron: #80645b;
+    --lila: #d9c9e9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+      radial-gradient(ellipse at top, #fff9f0, transparent 70%),
+      linear-gradient(135deg,#f5dfe0,#f5e8df,#e9e0ed);
+    font-family: 'Quicksand', sans-serif;
+    color: var(--marron);
+}
+
+button { font-family: inherit; cursor: pointer; }
+
+.hidden { display: none !important; }
+
+/* BRILLITOS */
+
+.sparkle {
+    position: fixed;
+    pointer-events: none;
+    color: #fff;
+    text-shadow: 0 0 8px #d6a9b4;
+    animation: twinkle 2s infinite alternate;
+    z-index: 1;
+}
+
+@keyframes twinkle {
+    from { opacity: .2; transform: scale(.7) rotate(0); }
+    to { opacity: 1; transform: scale(1.3) rotate(30deg); }
+}
+
+/* PANTALLA INICIAL */
+
+#inicio {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    text-align: center;
+}
+
+.intro {
+    position: relative;
+    z-index: 3;
+}
+
+.small-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 27px;
+    color: #a77983;
+}
+
+.envelope {
+    position: relative;
+    width: 290px;
+    height: 195px;
+    margin: 35px auto;
+    background: #e8b5bd;
+    border-radius: 5px;
+    box-shadow: 0 15px 35px #a77b7b40;
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+.envelope:hover { transform: translateY(-7px); }
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #f0cbd0;
+    clip-path: polygon(0 0,50% 55%,100% 0);
+    z-index: 2;
+    transform-origin: top;
+    transition: transform .8s;
+}
+
+.envelope.open::before {
+    transform: rotateX(180deg);
+}
+
+.envelope::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-left: 145px solid #dba5b0;
+    border-right: 145px solid #dba5b0;
+    border-top: 105px solid transparent;
+    z-index: 3;
+}
+
+.heart {
+    position: absolute;
+    z-index: 4;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36px;
+    color: #fff5ec;
+}
+
+.letter-inside {
+    position: absolute;
+    background: #fff8ee;
+    width: 245px;
+    height: 165px;
+    left: 22px;
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+    color: #aa7580;
+    font-size: 23px;
+    z-index: 1;
+}
+
+.open-button {
+    border: 1px solid #c9939f;
+    background: #fff5ec;
+    color: #a66d7b;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.open-button:hover {
+    background: #e8b5bd;
+    color: white;
+}
+
+/* ESCENA PRINCIPAL */
+
+#celebracion {
+    min-height: 100vh;
+    padding: 55px 15px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-heading {
+    font-family: 'Dancing Script', cursive;
+    color: #a96f7e;
+    font-size: clamp(42px,8vw,65px);
+    margin: 0 0 5px;
+}
+
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #a88a84;
+}
+
+.balloons {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 35px auto 30px;
+    max-width: 600px;
+}
+
+.balloon {
+    position: relative;
+    width: 55px;
+    height: 70px;
+    border: 0;
+    border-radius: 50% 50% 45% 45%;
+    animation: float 2.8s ease-in-out infinite;
+    box-shadow: inset -8px -7px 12px #00000012;
+    transition: .2s;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 45px;
+    background: #aa8b80;
+    left: 50%;
+    top: 68px;
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 22px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid #d7a6af;
+}
+
+.balloon:hover { transform: scale(1.12); }
+
+@keyframes float {
+    0%,100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+.balloon:nth-child(1) { background:#edb5c4; }
+.balloon:nth-child(2) { background:#c9b7df; animation-delay:.4s; }
+.balloon:nth-child(3) { background:#e9d2a9; animation-delay:.8s; }
+.balloon:nth-child(4) { background:#c5d9cd; animation-delay:.2s; }
+.balloon:nth-child(5) { background:#e9c5a9; animation-delay:.6s; }
+.balloon:nth-child(6) { background:#d6b9d5; animation-delay:1s; }
+
+.pop-word {
+    position: fixed;
+    z-index: 20;
+    pointer-events: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    font-weight: bold;
+    color: #a96f7e;
+    animation: popText 1.7s forwards;
+}
+
+@keyframes popText {
+    0% { opacity:0; transform:scale(.3) translateY(0); }
+    30% { opacity:1; transform:scale(1.2) translateY(-30px); }
+    100% { opacity:0; transform:scale(1) translateY(-90px); }
+}
+
+.balloon.popped {
+    animation: burst .25s forwards;
+    pointer-events: none;
+}
+
+@keyframes burst {
+    to { transform: scale(1.8); opacity: 0; }
+}
+
+/* CARTA */
+
+.card {
+    max-width: 570px;
+    margin: 25px auto;
+    padding: 35px 30px;
+    background:
+      repeating-linear-gradient(0deg,transparent,transparent 30px,#dfc9bd35 31px),
+      #fff9ed;
+    border: 1px solid #dfc3b8;
+    outline: 5px double #e6c8c0;
+    outline-offset: -12px;
+    box-shadow: 0 15px 40px #987e6e25;
+    position: relative;
+    animation: appear 1.2s ease;
+}
+
+@keyframes appear {
+    from { opacity:0; transform:translateY(30px); }
+    to { opacity:1; transform:translateY(0); }
+}
+
+.card .date {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #b18a81;
+}
+
+.card h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 39px;
+    color: #b57583;
+    margin: 20px 0;
+}
+
+.card p {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    line-height: 2;
+    text-align: justify;
+    color: #78635d;
+    margin: 17px 0;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 28px;
+    color: #b57583;
+    text-align: right;
+    margin-top: 25px;
+}
+
+.hint {
+    font-size: 12px;
+    color: #a58b87;
+    margin-top: 35px;
+    font-style: italic;
+}
+
+/* BOTON CERRAR */
+
+.close-button {
+    margin: 20px auto;
+    background: #c88e9a;
+    color: white;
+    border: none;
+    padding: 13px 28px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px #a7797930;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.close-button:hover {
+    background: #a96f7e;
+    transform: translateY(-3px);
+}
+
+/* FINAL DEL GATITO */
+
+#final {
+    min-height: 100vh;
+    padding: 50px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    animation: appear 1.2s ease;
+}
+
+.final-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 48px;
+    color: #a96f7e;
+}
+
+.cat {
+    font-size: 115px;
+    margin: 5px;
+    animation: catBounce 2s infinite ease-in-out;
+}
+
+@keyframes catBounce {
+    0%,100% { transform:translateY(0) rotate(-3deg); }
+    50% { transform:translateY(-12px) rotate(3deg); }
+}
+
+.cake {
+    position: relative;
+    margin: 20px auto;
+    width: 190px;
+    height: 120px;
+    animation: cakeAppear 1s ease;
+}
+
+@keyframes cakeAppear {
+    from { transform:scale(.4); opacity:0; }
+    to { transform:scale(1); opacity:1; }
+}
+
+.cake-top {
+    position: absolute;
+    top: 15px;
+    width: 180px;
+    height: 40px;
+    left: 5px;
+    border-radius: 50%;
+    background: #fff0dc;
+    border: 3px solid #d7a4a4;
+    z-index: 2;
+}
+
+.cake-body {
+    position: absolute;
+    top: 30px;
+    left: 5px;
+    width: 180px;
+    height: 70px;
+    background: #e7b4bd;
+    border-radius: 8px 8px 18px 18px;
+    border-bottom: 8px solid #c88e9a;
+    z-index: 1;
+}
+
+.cake-body::before {
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:22px;
+    background:#fff0dc;
+    border-radius:50%;
+}
+
+.cake-candle {
+    position:absolute;
+    top:-15px;
+    left:85px;
+    width:9px;
+    height:30px;
+    background:repeating-linear-gradient(45deg,#fff 0 4px,#d8a5ae 4px 8px);
+    z-index:4;
+}
+
+.flame {
+    position:absolute;
+    top:-30px;
+    left:84px;
+    color:#e7aa62;
+    font-size:20px;
+    animation:twinkle .7s infinite alternate;
+    z-index:5;
+}
+
+.cake-message {
+    position:absolute;
+    top:51px;
+    left:0;
+    width:100%;
+    z-index:6;
+    font-family:'Dancing Script',cursive;
+    font-size:17px;
+    color:#925c69;
+    font-weight:bold;
+}
+
+.final-note {
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    color:#947b72;
+    margin-top:15px;
+}
+
+footer {
+    font-family:'Dancing Script',cursive;
+    color:#b78c91;
+    font-size:20px;
+    margin-top:30px;
+}
+
+@media(max-width:450px) {
+    .card { padding:30px 22px; }
+    .card p { font-size:14px; }
+    .balloon { width:43px;height:60px; }
+    .envelope { width:270px; }
+    .envelope::after {
+       border-left-width:135px;
+       border-right-width:135px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BRILLITOS DEL FONDO -->
+<div id="sparkles"></div>
+
+<!-- PRIMERA PANTALLA -->
+<section id="inicio">
+    <div class="intro">
+        <div class="small-title">Una pequeña sorpresa para...</div>
+
+        <div class="envelope" id="envelope" onclick="openLetter()">
+            <div class="letter-inside">
+                <span>Para Daira</span>
+                <span>♡</span>
+            </div>
+            <div class="heart">♥</div>
+        </div>
+
+        <h1 style="font-family:'Dancing Script';color:#a96f7e;font-size:35px">
+            ¡Tienes una cartita!
+        </h1>
+
+        <p style="font-size:13px;letter-spacing:1px">
+            Toca el sobre para descubrir tu sorpresa
+        </p>
+
+        <button class="open-button" onclick="openLetter()">
+            ABRIR MI REGALITO ♡
+        </button>
+    </div>
+</section>
+
+<!-- CELEBRACIÓN Y CARTA -->
+<section id="celebracion" class="hidden">
+
+    <p class="subtitle">✧ UN DÍA MUY ESPECIAL ✧</p>
+
+    <h1 class="main-heading">¡Feliz cumpleaños!</h1>
+
+    <p style="font-family:'Dancing Script';font-size:27px;color:#a77983">
+        Para nuestra querida Daira ♡
+    </p>
+
+    <p style="font-size:12px;color:#9e8580">
+        ¡Revienta los globitos para descubrir pequeñas sorpresas!
+    </p>
+
+    <div class="balloons" id="balloons">
+        <button class="balloon" aria-label="Reventar globo"></button>
+        <button class="balloon" aria-label="Reventar globo"></button>
+        <button class="balloon" aria-label="Reventar globo"></button>
+        <button class="balloon" aria-label="Reventar globo"></button>
+        <button class="balloon" aria-label="Reventar globo"></button>
+        <button class="balloon" aria-label="Reventar globo"></button>
+    </div>
+
+    <article class="card">
+
+        <div class="date">24 DE NOVIEMBRE · UN DÍA PARA RECORDAR</div>
+
+        <h2>Querida Daira ♡</h2>
+
+        <p>
+            ¡Hoy es tu día! Queremos desearte un cumpleaños
+            lleno de momentos bonitos, sonrisas y muchísimo
+            cariño. Eres una compañera y amiga increíble,
+            siempre dispuesta a ayudar, con esa amabilidad
+            y alegría que hacen que compartir contigo sea
+            mucho más divertido. Gracias por ser una personita
+            tan especial dentro de nuestro grupo.
+        </p>
+
+        <p>
+            ¡Y no podemos creer que ya seas la primera del grupo
+            en cumplir 20 años! Has cambiado el 1 por el 2,
+            oficialmente entraste a una nueva etapa JAJA.
+            Esperamos que esta nueva vuelta al sol venga
+            acompañada de muchas experiencias bonitas,
+            sueños cumplidos, nuevas aventuras y motivos
+            para seguir sonriendo.
+        </p>
+
+        <p>
+            Esperamos de corazón que hoy la pases precioso,
+            que recibas mucho amor y que disfrutes cada
+            momentito de tu día. También esperamos que te
+            gusten tus regalitos, los preparamos con mucho
+            cariño para ti. Nunca pierdas esa forma tan linda
+            y divertida de ser. ¡Te mereces cosas maravillosas!
+        </p>
+
+        <div class="signature">
+            Con mucho cariño, tu grupo ♡
+        </div>
+
+        <div class="hint">
+            ✧ Hecho con cariño, especialmente para ti ✧
+        </div>
+
+    </article>
+
+    <button class="close-button" onclick="closeLetter()">
+        CERRAR CARTA ♡
+    </button>
+
+</section>
+
+<!-- SORPRESA FINAL -->
+<section id="final" class="hidden">
+
+    <p class="subtitle">✧ UNA ÚLTIMA SORPRESITA ✧</p>
+
+    <h1 class="final-title">¡Espera, Daira!</h1>
+
+    <p style="font-family:'Dancing Script';font-size:25px;color:#a77983">
+        Alguien vino a entregarte algo...
+    </p>
+
+    <div class="cat">🐱</div>
+
+    <p style="font-family:'Dancing Script';font-size:25px;color:#a77983">
+        ¡Mira lo que te traje!
+    </p>
+
+    <div class="cake">
+        <div class="cake-top"></div>
+        <div class="cake-body"></div>
+        <div class="cake-candle"></div>
+        <div class="flame">✦</div>
+        <div class="cake-message">
+            ¡Feliz cumpleaños<br>Daira! ♡
+        </div>
+    </div>
+
+    <p class="final-note">
+        Pide un deseo y sopla las velitas...
+    </p>
+
+    <footer>
+        Con cariño, hoy y siempre ♡
+    </footer>
+
+    <button class="close-button" onclick="location.reload()">
+        VOLVER A VER MI SORPRESA
+    </button>
+
+</section>
+
+<script>
+
+// CREAR BRILLITOS
+const sparkleContainer = document.getElementById('sparkles');
+
+for(let i=0; i<35; i++){
+    const star = document.createElement('span');
+    star.className = 'sparkle';
+    star.textContent = Math.random() > .5 ? '✧' : '✦';
+    star.style.left = Math.random()*100+'%';
+    star.style.top = Math.random()*100+'%';
+    star.style.fontSize = (8+Math.random()*14)+'px';
+    star.style.animationDelay = Math.random()*3+'s';
+    sparkleContainer.appendChild(star);
+}
+
+// ABRIR SOBRE
+function openLetter(){
+    document.getElementById('envelope').classList.add('open');
+
+    setTimeout(()=>{
+        document.getElementById('inicio').classList.add('hidden');
+        document.getElementById('celebracion').classList.remove('hidden');
+        window.scrollTo(0,0);
+        confetti();
+    },650);
+}
+
+// CONFETI
+function confetti(){
+    const colors = ['#edb8c4','#d9c9e9','#f5d9a9','#c6d9ca','#fff1dc'];
+
+    for(let i=0;i<65;i++){
+        const piece = document.createElement('div');
+        piece.style.position='fixed';
+        piece.style.zIndex='15';
+        piece.style.left=Math.random()*100+'vw';
+        piece.style.top='-15px';
+        piece.style.width='8px';
+        piece.style.height='8px';
+        piece.style.borderRadius=Math.random()>.5?'50%':'2px';
+        piece.style.background=colors[Math.floor(Math.random()*colors.length)];
+        piece.style.pointerEvents='none';
+        document.body.appendChild(piece);
+
+        const duration=2000+Math.random()*2500;
+        piece.animate([
+            {transform:'translateY(0) rotate(0deg)',opacity:1},
+            {transform:`translateY(${window.innerHeight+100}px) rotate(${Math.random()*800}deg)`,opacity:0}
+        ],{duration:duration,easing:'ease-in'});
+
+        setTimeout(()=>piece.remove(),duration);
+    }
+}
+
+// GLOBOS QUE EXPLOTAN
+const words = [
+    '¡FELIZ!',
+    '¡DAIRA!',
+    '20 AÑITOS',
+    'CUMPLEAÑOS',
+    'MUCHOS ABRAZOS',
+    'TE QUEREMOS ♡'
+];
+
+document.querySelectorAll('.balloon').forEach((balloon,index)=>{
+    balloon.addEventListener('click',()=>{
+        if(balloon.classList.contains('popped')) return;
+
+        const rect=balloon.getBoundingClientRect();
+
+        const word=document.createElement('div');
+        word.className='pop-word';
+        word.textContent=words[index];
+        word.style.left=rect.left+'px';
+        word.style.top=rect.top+'px';
+        document.body.appendChild(word);
+
+        balloon.classList.add('popped');
+
+        setTimeout(()=>word.remove(),1800);
+        confetti();
+    });
+});
+
+// CERRAR CARTA Y MOSTRAR GATITO
+function closeLetter(){
+    document.getElementById('celebracion').classList.add('hidden');
+    document.getElementById('final').classList.remove('hidden');
+
+    window.scrollTo(0,0);
+    confetti();
+}
+
+</script>
+
+</body>
+</html>
